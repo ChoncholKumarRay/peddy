@@ -1,0 +1,13 @@
+.lato-normal {
+  font-family: "Lato", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.spinner {
+  display: none; 
+}
+
+.active {
+  background-color: #c7e3d6;
+  border-radius: 30px;
+} 

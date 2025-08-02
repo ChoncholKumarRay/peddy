@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy - React Demo</title>
+    
+    <!-- Lato font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/08ef0f681f.js" crossorigin="anonymous"></script>
+    
+    <style>
+        .lato-normal {
+            font-family: "Lato", sans-serif;
+            font-optical-sizing: auto;
+        }
+        .spinner {
+            display: none; 
+        }
+        .active {
+            background-color: #c7e3d6;
+            border-radius: 30px;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        'footer-bg': '#131313',
+                        'button-bg':'#0E7A81',
+                        'green-text': '#0E7A81',
+                        'card-2': '#EFDA6E',
+                        'card-3': '#A4DAC3',
+                        'card-4': '#77AAEA',
+                        'footer-bg': '#1C1C1C',
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="lato-normal">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8 text-green-text">Peddy - React Conversion Demo</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">React Components Structure</h2>
+            <p class="text-gray-600 mb-4">The original HTML/CSS/JavaScript application has been successfully converted to React using Vue.js components in JSX format.</p>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-gray-50 p-4 rounded">
+                    <h3 class="font-bold text-lg mb-2">Components Created:</h3>
+                    <ul class="list-disc list-inside space-y-1 text-sm">
+                        <li>Header.jsx - Navigation component</li>
+                        <li>Banner.jsx - Hero section</li>
+                        <li>MainSection.jsx - Main content area</li>
+                        <li>CategoryButton.jsx - Category filters</li>
+                        <li>PetCard.jsx - Individual pet cards</li>
+                        <li>LikedPets.jsx - Liked pets sidebar</li>
+                        <li>Spinner.jsx - Loading indicator</li>
+                        <li>PetDetailsModal.jsx - Pet details modal</li>
+                        <li>AdoptionModal.jsx - Adoption confirmation</li>
+                        <li>Footer.jsx - Footer section</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded">
+                    <h3 class="font-bold text-lg mb-2">Features Implemented:</h3>
+                    <ul class="list-disc list-inside space-y-1 text-sm">
+                        <li>✅ Category filtering</li>
+                        <li>✅ Pet sorting by price</li>
+                        <li>✅ Like/unlike pets</li>
+                        <li>✅ Pet details modal</li>
+                        <li>✅ Adoption process with countdown</li>
+                        <li>✅ Responsive design</li>
+                        <li>✅ Loading states</li>
+                        <li>✅ Error handling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Setup Instructions</h2>
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                <p class="text-yellow-700"><strong>Note:</strong> This is a React application that requires Node.js to run. Please install Node.js first.</p>
+            </div>
+            
+            <div class="space-y-2 text-sm">
+                <p><strong>1. Install Node.js:</strong> Download from <a href="https://nodejs.org/" class="text-blue-600 hover:underline">nodejs.org</a></p>
+                <p><strong>2. Install dependencies:</strong> <code class="bg-gray-100 px-2 py-1 rounded">npm install</code></p>
+                <p><strong>3. Start development server:</strong> <code class="bg-gray-100 px-2 py-1 rounded">npm run dev</code></p>
+                <p><strong>4. Open browser:</strong> Navigate to <code class="bg-gray-100 px-2 py-1 rounded">http://localhost:3000</code></p>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">File Structure</h2>
+            <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+assignment-6/
+├── public/
+│   └── images/          # Static images
+├── src/
+│   ├── components/      # Vue.js components in JSX format
+│   │   ├── Header.jsx
+│   │   ├── Banner.jsx
+│   │   ├── MainSection.jsx
+│   │   ├── CategoryButton.jsx
+│   │   ├── PetCard.jsx
+│   │   ├── LikedPets.jsx
+│   │   ├── Spinner.jsx
+│   │   ├── PetDetailsModal.jsx
+│   │   ├── AdoptionModal.jsx
+│   │   └── Footer.jsx
+│   ├── App.jsx          # Main application component
+│   ├── main.jsx         # Application entry point
+│   └── index.css        # Global styles
+├── index.html           # HTML template
+├── package.json         # Dependencies and scripts
+├── vite.config.js       # Vite configuration
+└── README.md           # Project documentation</pre>
+        </div>
+    </div>
+</body>
+</html> 

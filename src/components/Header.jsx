@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ onLoginClick }) => {
+  const navigate = useNavigate();
   return (
     <header className="p-2">
       <nav className="max-w-[1270px] mx-auto">
@@ -40,8 +42,8 @@ const Header = ({ onLoginClick }) => {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-              <li><a className="text-gray-500 text-[16px]">Home</a></li>
-              <li><a className="text-gray-500 text-[16px]">Shop</a></li>
+              <li><a className="text-gray-500 text-[16px]" onClick={() => navigate('/')}>Home</a></li>
+              <li><a className="text-gray-500 text-[16px]" onClick={() => navigate('/shop')}>Shop</a></li>
               <li><a className="text-gray-500 text-[16px]">Contact</a></li>
             </ul>
           </div>
@@ -56,7 +58,7 @@ const Header = ({ onLoginClick }) => {
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Header 
+export default Header;

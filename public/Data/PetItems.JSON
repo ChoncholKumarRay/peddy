@@ -1,0 +1,162 @@
+[
+  {
+    "id": "P001",
+    "name": "Premium Dog Food",
+    "category": "dog",
+    "price": 29.99,
+    "description": "Nutritious dry food for adult dogs.",
+    "image": "https://images.unsplash.com/photo-1601758123927-1967c98d8f5d"
+  },
+  {
+    "id": "P002",
+    "name": "Cat Scratching Post",
+    "category": "cat",
+    "price": 19.99,
+    "description": "Durable scratching post for cats to maintain claws.",
+    "image": "https://images.unsplash.com/photo-1619983081535-d2aafeb438d4"
+  },
+  {
+    "id": "P003",
+    "name": "Bird Cage Deluxe",
+    "category": "bird",
+    "price": 45.00,
+    "description": "Spacious bird cage with dual perches.",
+    "image": "https://images.unsplash.com/photo-1562007901-c4f36c54d8d4"
+  },
+  {
+    "id": "P004",
+    "name": "Rabbit Hutch",
+    "category": "rabbit",
+    "price": 75.50,
+    "description": "Weather-resistant outdoor hutch for rabbits.",
+    "image": "https://images.unsplash.com/photo-1588865799334-1b1cb198d0d2"
+  },
+  {
+    "id": "P005",
+    "name": "Dog Chew Toy Set",
+    "category": "dog",
+    "price": 12.49,
+    "description": "Set of 5 colorful chew toys for dogs.",
+    "image": "https://images.unsplash.com/photo-1619982672023-2c8e7e31a4e6"
+  },
+  {
+    "id": "P006",
+    "name": "Cat Litter Box",
+    "category": "cat",
+    "price": 22.99,
+    "description": "Covered litter box for odor control.",
+    "image": "https://images.unsplash.com/photo-1593810453497-3e8a257b0415"
+  },
+  {
+    "id": "P007",
+    "name": "Bird Feeder",
+    "category": "bird",
+    "price": 15.00,
+    "description": "Transparent feeder suitable for all bird species.",
+    "image": "https://images.unsplash.com/photo-1600986603285-984e1e42b6df"
+  },
+  {
+    "id": "P008",
+    "name": "Rabbit Food Pellets",
+    "category": "rabbit",
+    "price": 18.49,
+    "description": "High-fiber pellets for healthy digestion.",
+    "image": "https://images.unsplash.com/photo-1634323613661-e3a5f507c34b"
+  },
+  {
+    "id": "P009",
+    "name": "Dog Shampoo",
+    "category": "dog",
+    "price": 9.99,
+    "description": "Mild and natural shampoo for all dog breeds.",
+    "image": "https://images.unsplash.com/photo-1603232644148-654d46944b30"
+  },
+  {
+    "id": "P010",
+    "name": "Cat Collar Bell",
+    "category": "cat",
+    "price": 4.99,
+    "description": "Adjustable collar with bell and ID tag.",
+    "image": "https://images.unsplash.com/photo-1611066527239-2b6db093abb5"
+  },
+  {
+    "id": "P011",
+    "name": "Bird Bath Bowl",
+    "category": "bird",
+    "price": 6.50,
+    "description": "Colorful plastic bowl for bird bathing.",
+    "image": "https://images.unsplash.com/photo-1622219901645-e85fba17b3ea"
+  },
+  {
+    "id": "P012",
+    "name": "Rabbit Hay Feeder",
+    "category": "rabbit",
+    "price": 10.75,
+    "description": "Holds hay to reduce mess in rabbit cages.",
+    "image": "https://images.unsplash.com/photo-1628694096974-94bb8a37dc96"
+  },
+  {
+    "id": "P013",
+    "name": "Dog Leash & Harness",
+    "category": "dog",
+    "price": 14.99,
+    "description": "Adjustable harness with anti-pull leash.",
+    "image": "https://images.unsplash.com/photo-1619982748859-f5b1a2c2dd93"
+  },
+  {
+    "id": "P014",
+    "name": "Cat Teaser Wand",
+    "category": "cat",
+    "price": 5.49,
+    "description": "Interactive wand toy with feathers.",
+    "image": "https://images.unsplash.com/photo-1631057027770-588622675c13"
+  },
+  {
+    "id": "P015",
+    "name": "Bird Toy Set",
+    "category": "bird",
+    "price": 9.99,
+    "description": "Variety toy set for bird stimulation.",
+    "image": "https://images.unsplash.com/photo-1559579314-cb90d93f51e7"
+  },
+  {
+    "id": "P016",
+    "name": "Rabbit Water Bottle",
+    "category": "rabbit",
+    "price": 6.99,
+    "description": "No-drip water bottle with steel spout.",
+    "image": "https://images.unsplash.com/photo-1615036692336-317103d32fa4"
+  },
+  {
+    "id": "P017",
+    "name": "Dog Training Treats",
+    "category": "dog",
+    "price": 7.49,
+    "description": "Bite-sized training snacks with chicken flavor.",
+    "image": "https://images.unsplash.com/photo-1602563634212-4564e39fc747"
+  },
+  {
+    "id": "P018",
+    "name": "Cat Bed Soft",
+    "category": "cat",
+    "price": 24.00,
+    "description": "Round soft bed for cozy cat naps.",
+    "image": "https://images.unsplash.com/photo-1603721737320-7c7063b8a94e"
+  },
+  {
+    "id": "P019",
+    "name": "Bird Nesting Material",
+    "category": "bird",
+    "price": 4.25,
+    "description": "Natural fibers ideal for nesting birds.",
+    "image": "https://images.unsplash.com/photo-1579186658148-0e98e27968f2"
+  },
+  {
+    "id": "P020",
+    "name": "Rabbit Nail Clipper",
+    "category": "rabbit",
+    "price": 5.89,
+    "description": "Ergonomic nail clipper for rabbits and small pets.",
+    "image": "https://images.unsplash.com/photo-1587574293340-00b3e874b67d"
+  }
+]

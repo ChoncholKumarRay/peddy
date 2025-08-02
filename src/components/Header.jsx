@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ onLoginClick }) => {
   return (
     <header className="p-2">
       <nav className="max-w-[1270px] mx-auto">
@@ -46,9 +46,12 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn bg-inherit border-blue-100 rounded-full">
+            <button
+              className="btn bg-inherit border-blue-100 rounded-full"
+              onClick={onLoginClick}
+            >
               <i className="fa-regular fa-user"></i>
-            </a>
+            </button>
           </div>
         </div>
       </nav>

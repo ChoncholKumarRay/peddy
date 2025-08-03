@@ -8,11 +8,17 @@ const PetCard = ({ pet, checkNull, onLike, onDetails, onAdopt }) => {
     onAdopt();
   };
 
-  const pet_name = checkNull(pet.pet_name);
+  const pet_name = checkNull(pet.name);
   const breed = checkNull(pet.breed);
-  const date_of_birth = checkNull(pet.date_of_birth);
   const gender = checkNull(pet.gender);
-  const price = checkNull(pet.price);
+  const rawDOB = checkNull(pet.DOB);
+  const date_of_birth = rawDOB
+    ? new Date(rawDOB).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "N/A";
 
   return (
     <div className="min-w-fit bg-base-100 border rounded-[20px]">

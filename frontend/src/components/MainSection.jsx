@@ -5,48 +5,47 @@ import LikedPets from "./LikedPets.jsx";
 import Spinner from "./Spinner.jsx";
 
 const MainSection = ({ onPetDetails, onAdoptPet }) => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([
+    { category: "All" }, // Default category
+    { category: "Dog" },
+    { category: "Cat" },
+    { category: "Bird" },
+  ]);
   const [pets, setPets] = useState([]);
   const [currentPets, setCurrentPets] = useState([]);
   const [likedPets, setLikedPets] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/peddy/categories")
-      .then((response) => response.json())
-      .then((data) => setCategories(data.categories))
-      .catch((err) => console.log(err));
+    fetchPets();
   }, []);
 
-  useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/peddy/pets")
-      .then((response) => response.json())
+  const fetchPets = () => {
+    setLoading(true);
+    fetch("http://localhost:5000/api/pet/all-post") // Replace with your backend URL
+      .then((res) => res.json())
       .then((data) => {
-        setPets(data.pets);
-        setCurrentPets(data.pets);
+        setPets(data.posts); // assuming your backend returns { posts: [...] }
+        setCurrentPets(data.posts);
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => {
+        console.error("Failed to fetch pets:", err);
+        setLoading(false);
+      });
+  };
 
   const loadCategoryContents = (categoryName) => {
-    setLoading(true);
     setActiveCategory(categoryName);
-
-    setTimeout(() => {
-      fetch(
-        `https://openapi.programming-hero.com/api/peddy/category/${categoryName.toLowerCase()}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setCurrentPets(data.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(false);
-        });
-    }, 2000);
+    if (categoryName === "All") {
+      setCurrentPets(pets);
+    } else {
+      const filtered = pets.filter(
+        (pet) => pet.category?.toLowerCase() === categoryName.toLowerCase()
+      );
+      setCurrentPets(filtered);
+    }
   };
 
   const handleLikePet = (pet) => {
@@ -54,10 +53,7 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
   };
 
   const checkNull = (value) => {
-    if (value === null || value === undefined) {
-      return "Not Available";
-    }
-    return value;
+    return value === null || value === undefined ? "Not Available" : value;
   };
 
   return (
@@ -73,7 +69,7 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
       </div>
 
       <div className="flex justify-center mx-auto">
-        <div className="md:flex grid grid-cols-2 gap-5 px justify-center lg:mx-auto ml-[50px] my-10">
+        <div className="md:flex grid grid-cols-2 gap-5 justify-center lg:mx-auto ml-[50px] my-10">
           {categories.map((category) => (
             <CategoryButton
               key={category.category}
@@ -87,7 +83,9 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
 
       <div className="flex justify-between items-center my-5">
         <div>
-          <h1 className="text-[24px] font-extrabold">Best Deal For You</h1>
+          <h1 className="text-[24px] font-extrabold">
+            Pets Available for Adoption
+          </h1>
         </div>
       </div>
 
@@ -113,17 +111,16 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
             ) : (
               currentPets.map((pet) => (
                 <PetCard
-                  key={pet.petId}
+                  key={pet._id} // assuming MongoDB
                   pet={pet}
                   checkNull={checkNull}
                   onLike={() => handleLikePet(pet)}
                   onDetails={() => onPetDetails(pet)}
-                  onAdopt={() => onAdoptPet(pet.petId)}
+                  onAdopt={() => onAdoptPet(pet._id)}
                 />
               ))
             )}
           </div>
-          <LikedPets likedPets={likedPets} />
         </div>
       </section>
     </main>

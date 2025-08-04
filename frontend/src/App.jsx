@@ -9,6 +9,7 @@ import PetDetailsModal from "./components/PetDetailsModal.jsx";
 import AdoptionModal from "./components/AdoptionModal.jsx";
 import Shop from "./components/Shop.jsx";
 import CreatePost from "./components/CreatePost.jsx";
+import CategoryButton from "./components/CategoryButton.jsx";
 
 function App() {
   const [selectedPet, setSelectedPet] = useState(null);

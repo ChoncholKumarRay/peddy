@@ -3,14 +3,16 @@ import CategoryButton from "./CategoryButton.jsx";
 import PetCard from "./PetCard.jsx";
 import LikedPets from "./LikedPets.jsx";
 import Spinner from "./Spinner.jsx";
+import { FaDog, FaCat, FaDove, FaPaw } from "react-icons/fa";
 
 const MainSection = ({ onPetDetails, onAdoptPet }) => {
   const [categories, setCategories] = useState([
-    { category: "All" }, // Default category
-    { category: "Dog" },
-    { category: "Cat" },
-    { category: "Bird" },
+    { category: "All", icon: <FaPaw /> },
+    { category: "Dog", icon: <FaDog /> },
+    { category: "Cat", icon: <FaCat /> },
+    { category: "Bird", icon: <FaDove /> },
   ]);
+
   const [pets, setPets] = useState([]);
   const [currentPets, setCurrentPets] = useState([]);
   const [likedPets, setLikedPets] = useState([]);
@@ -23,10 +25,10 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
 
   const fetchPets = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/pet/all-post") // Replace with your backend URL
+    fetch("http://localhost:5000/api/pet/all-post")
       .then((res) => res.json())
       .then((data) => {
-        setPets(data.posts); // assuming your backend returns { posts: [...] }
+        setPets(data.posts);
         setCurrentPets(data.posts);
         setLoading(false);
       })
@@ -111,7 +113,7 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
             ) : (
               currentPets.map((pet) => (
                 <PetCard
-                  key={pet._id} // assuming MongoDB
+                  key={pet._id}
                   pet={pet}
                   checkNull={checkNull}
                   onLike={() => handleLikePet(pet)}

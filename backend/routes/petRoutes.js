@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import { storage } from "../config/cloudinary.js";
 import Pet from "../models/pet.js";
+import User from "../models/user.js";
 
 const router = express.Router();
 const upload = multer({ storage });
@@ -21,8 +22,13 @@ router.post("/create-post", upload.single("image"), async (req, res) => {
       posted_by,
     });
 
+    await User.findByIdAndUpdate(posted_by, {
+      $push: { posts: newPost._id },
+    });
+
     res.status(201).json({ success: true, post: newPost });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ success: false, message: err.message });
   }
 });

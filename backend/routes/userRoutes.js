@@ -1,6 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import User from "../models/user.js";
+import Pet from "../models/pet.js";
 
 const router = Router();
 
@@ -99,17 +100,39 @@ router.post("/profile", async (req, res) => {
   }
 
   try {
-    const user = await User.findById(user_id).select(
-      "name phone email address balance order_list"
-    );
+    const user = await User.findById(user_id).populate("posts");
 
     if (!user) {
       return res.status(404).json({ success: false, error: "User not found" });
     }
 
-    res.status(200).json({
+    // Process posts and attach requesters' info
+    const postsWithRequesters = await Promise.all(
+      user.posts.map(async (post) => {
+        if (post.request_by && post.request_by.length > 0) {
+          const requesters = await User.find({
+            _id: { $in: post.request_by },
+          }).select("name phone email");
+
+          return {
+            ...post.toObject(),
+            requesters, // add requester details
+          };
+        } else {
+          return post;
+        }
+      })
+    );
+
+    res.json({
       success: true,
-      profile: user,
+      user: {
+        user_id: user._id,
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
+        posts: postsWithRequesters,
+      },
     });
   } catch (err) {
     res

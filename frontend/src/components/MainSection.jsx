@@ -13,6 +13,35 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
     { category: "Bird", icon: <FaDove /> },
   ]);
 
+  const handleAdoptPet = async (petId) => {
+    try {
+      const user = JSON.parse(localStorage.getItem("peddy-user"));
+      const user_id = user?.user_id;
+
+      if (!user_id) {
+        toast.error("User not logged in!");
+        return;
+      }
+
+      const res = await fetch("http://localhost:5000/api/pet/adopt-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: petId, user_id }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Adoption request sent successfully!");
+      } else {
+        toast.error(data.message || "Adoption request failed.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong.");
+      console.error(error);
+    }
+  };
+
   const [pets, setPets] = useState([]);
   const [currentPets, setCurrentPets] = useState([]);
   const [likedPets, setLikedPets] = useState([]);
@@ -118,7 +147,7 @@ const MainSection = ({ onPetDetails, onAdoptPet }) => {
                   checkNull={checkNull}
                   onLike={() => handleLikePet(pet)}
                   onDetails={() => onPetDetails(pet)}
-                  onAdopt={() => onAdoptPet(pet._id)}
+                  onAdopt={() => handleAdoptPet(pet._id)}
                 />
               ))
             )}

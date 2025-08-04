@@ -10,6 +10,7 @@ import AdoptionModal from "./components/AdoptionModal.jsx";
 import Shop from "./components/Shop.jsx";
 import CreatePost from "./components/CreatePost.jsx";
 import CategoryButton from "./components/CategoryButton.jsx";
+import Profile from "./components/Profile.jsx";
 
 function App() {
   const [selectedPet, setSelectedPet] = useState(null);
@@ -48,6 +49,16 @@ function App() {
             element={
               <>
                 <Shop cart={cart} setCart={setCart} />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Header />
+                <Profile />
                 <Footer />
               </>
             }

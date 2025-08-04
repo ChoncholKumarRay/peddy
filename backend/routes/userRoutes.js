@@ -90,7 +90,6 @@ router.post("/login", async (req, res) => {
 });
 
 // POST /api/user/profile
-// POST /api/user/profile
 router.post("/profile", async (req, res) => {
   const { user_id } = req.body;
 
